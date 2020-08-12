@@ -36,11 +36,32 @@ function createHeaders(header) {
   header.appendChild(th5);
 }
 
+function createBody(body, data) {
+  for (el in data) {
+    const td1 = document.createElement("td");
+    const td2 = document.createElement("td");
+    const td3 = document.createElement("td");
+    const td4 = document.createElement("td");
+    const td5 = document.createElement("td");
+    td1.innerHTML = el.id;
+    td2.innerHTML = formatDate(new Date(el.timestamp));
+    td3.innerHTML = el.diagnosis.name;
+    td4.innerHTML = el.meta.weight;
+    td5.innerHTML = el.doctor.name;
+    body.appendChild(td1);
+    body.appendChild(td2);
+    body.appendChild(td3);
+    body.appendChild(td4);
+    body.appendChild(td5);
+  }
+}
+
 function setProfileTable(data) {
   const header = document.getElementById(SECTIONS.profile.table.header);
   const body = document.getElementById(SECTIONS.profile.table.body);
 
   createHeaders(header);
+  createBody(body, data);
   header.appendChild(th);
 }
 
