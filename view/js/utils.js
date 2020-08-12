@@ -18,6 +18,32 @@ export function toggleClass(element, className) {
   element.classList.toggle(className);
 }
 
+function createHeaders(header) {
+  const th1 = document.createElement("th");
+  const th2 = document.createElement("th");
+  const th3 = document.createElement("th");
+  const th4 = document.createElement("th");
+  const th5 = document.createElement("th");
+  th1.innerHTML = "SL";
+  th2.innerHTML = "Date";
+  th3.innerHTML = "Diagnosis";
+  th4.innerHTML = "Weight";
+  th5.innerHTML = "Doctor";
+  header.appendChild(th1);
+  header.appendChild(th2);
+  header.appendChild(th3);
+  header.appendChild(th4);
+  header.appendChild(th5);
+}
+
+function setProfileTable(data) {
+  const header = document.getElementById(SECTIONS.profile.table.header);
+  const body = document.getElementById(SECTIONS.profile.table.body);
+
+  createHeaders(header);
+  header.appendChild(th);
+}
+
 export function setProfileData(profile) {
   console.log(profile);
   const sorted = profile.data.sort(sortData);
@@ -31,4 +57,6 @@ export function setProfileData(profile) {
   document.getElementById(
     SECTIONS.profile.height
   ).innerHTML = `Height: ${height}`;
+
+  setProfileTable(sorted);
 }

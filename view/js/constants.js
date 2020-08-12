@@ -9,6 +9,10 @@ export const SECTIONS = {
     name: "patient-name",
     dob: "patient-dob",
     height: "patient-height",
+    table: {
+      header: "table-header",
+      body: "table-header",
+    },
   },
 };
 
