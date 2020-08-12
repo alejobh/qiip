@@ -1,1 +1,1 @@
-const headers = ["SL", "Date", "Diagnosis", "Weight", "Doctor"];
+export const headers = ["SL", "Date", "Diagnosis", "Weight", "Doctor"];

@@ -1,4 +1,5 @@
 import { SECTIONS } from "./constants.js";
+import { headers } from "./script.js";
 
 const formatDate = (date) => {
   let month = date.getMonth() + 1;
@@ -18,22 +19,12 @@ export function toggleClass(element, className) {
   element.classList.toggle(className);
 }
 
-function createHeaders(header) {
-  const th1 = document.createElement("th");
-  const th2 = document.createElement("th");
-  const th3 = document.createElement("th");
-  const th4 = document.createElement("th");
-  const th5 = document.createElement("th");
-  th1.innerHTML = "SL";
-  th2.innerHTML = "Date";
-  th3.innerHTML = "Diagnosis";
-  th4.innerHTML = "Weight";
-  th5.innerHTML = "Doctor";
-  header.appendChild(th1);
-  header.appendChild(th2);
-  header.appendChild(th3);
-  header.appendChild(th4);
-  header.appendChild(th5);
+function createHeaders(thead) {
+  headers.forEach((header) => {
+    const th = document.createElement("th");
+    th.innerHTML = header;
+    thead.appendChild(th);
+  });
 }
 
 function createBody(body, data) {
@@ -68,10 +59,8 @@ function setProfileTable(data) {
 }
 
 export function setProfileData(profile) {
-  console.log(profile);
   const sorted = profile.data.sort(sortData);
   const data = sorted[0];
-  console.log(data);
   const name = data.userName;
   const dob = data.userDob;
   const height = data.meta.height;
@@ -83,4 +72,11 @@ export function setProfileData(profile) {
   ).innerHTML = `Height: ${height}`;
 
   setProfileTable(sorted);
+}
+
+export function resetProfileTable() {
+  const header = document.getElementById(SECTIONS.profile.table.header);
+  const body = document.getElementById(SECTIONS.profile.table.body);
+  header.innerHTML = "";
+  body.innerHTML = "";
 }

@@ -1,6 +1,6 @@
 // load proccess
 import { SECTIONS, ELEMENTS } from "./constants.js";
-import { toggleClass, setProfileData } from "./utils.js";
+import { toggleClass, setProfileData, resetProfileTable } from "./utils.js";
 import { getMedicalRecord } from "./service.js";
 
 const loader = document.getElementById(SECTIONS.loader);
@@ -16,7 +16,9 @@ userSelector.addEventListener("change", async function () {
 
 submitBtn.addEventListener("click", async function () {
   if (id) {
+    resetProfileTable();
     toggleClass(loader, "hide");
+    toggleClass(profileContainer, "hide");
     const response = await getMedicalRecord(id);
     const data = await response.json();
     toggleClass(loader, "hide");
