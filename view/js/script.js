@@ -1,1 +1,1 @@
-const headers = ['SL', 'Date', 'Diagnosis', 'Weight', 'Doctor'];
+const headers = ["SL", "Date", "Diagnosis", "Weight", "Doctor"];

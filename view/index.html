@@ -1,62 +1,69 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <!--Define title-->
     <title>Patient Medical Records</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito&display=swap"
+      rel="stylesheet"
+    />
     <!--You can load all the css files here -->
-    <link rel="stylesheet" type="text/css" href="css/select.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-</head>
+    <link rel="stylesheet" type="text/css" href="css/select.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+  </head>
 
-<body>
-<!--HTML content goes here-->
+  <body>
+    <!--HTML content goes here-->
 
+    <nav class="app-nav">
+      <h1 class="app-title">Patient Records</h1>
+    </nav>
 
-<nav class="app-nav">
-    <h1 class="app-title">Patient Records</h1>
-</nav>
-
-<div class="content">
-    <section class="flex select-form-container" id="patient-filter">
+    <div class="content">
+      <section class="flex select-form-container" id="patient-filter">
         <div class="select">
-            <select id="patient-select">
-                <option selected disabled value="-1">Select User</option>
-                <option value="1">John Oliver</option>
-                <option value="2">Bob Martin</option>
-                <option value="3">Helena Fernandez</option>
-                <option value="4">Francesco De Mello</option>
-            </select>
+          <select id="patient-select">
+            <option selected disabled value="-1">Select User</option>
+            <option value="1">John Oliver</option>
+            <option value="2">Bob Martin</option>
+            <option value="3">Helena Fernandez</option>
+            <option value="4">Francesco De Mello</option>
+          </select>
         </div>
 
         <button type="submit" id="submit-btn">
-            Show
+          Show
         </button>
-    </section>
+      </section>
 
-    <div id="loader-view">
+      <div id="loader-view">
         <section class="loader-container">
-            <span class="loader"></span>
+          <span class="loader"></span>
         </section>
-    </div>
+      </div>
 
-    <section class="patient-profile-container" id="profile-view">
+      <section class="patient-profile-container" id="profile-view">
         <div id="patient-profile">
-            <h1 id="patient-name"></h1>
-            <h3 id="patient-dob"></h3>
-            <h3 id="patient-height"></h3>
+          <h1 id="patient-name">Alejandro</h1>
+          <h3 id="patient-dob">dob</h3>
+          <h3 id="patient-height">2.3</h3>
         </div>
 
         <table id="patient-records-table">
-            <thead id="table-header"></thead>
-            <tbody id="table-body"></tbody>
+          <thead id="table-header"></thead>
+          <tbody id="table-body"></tbody>
         </table>
-    </section>
-</div>
+      </section>
+    </div>
 
-<!--You can load all the javascript files here-->
-<script type="text/javascript" src="js/script.js"></script>
-</body>
+    <!--You can load all the javascript files here-->
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="module" src="js/constants.js"></script>
+    <script type="module" src="js/utils.js"></script>
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/service.js"></script>
+  </body>
 </html>
