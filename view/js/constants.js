@@ -4,7 +4,12 @@ export const QUERY_PARAMS = {
 
 export const SECTIONS = {
   loader: "loader-view",
-  profile: "profile-view",
+  profile: {
+    container: "profile-view",
+    name: "patient-name",
+    dob: "patient-dob",
+    height: "patient-height",
+  },
 };
 
 export const ELEMENTS = {

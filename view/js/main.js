@@ -1,10 +1,10 @@
 // load proccess
 import { SECTIONS, ELEMENTS } from "./constants.js";
-import { toggleClass } from "./utils.js";
+import { toggleClass, setProfileData } from "./utils.js";
 import { getMedicalRecord } from "./service.js";
 
 const loader = document.getElementById(SECTIONS.loader);
-const profileContainer = document.getElementById(SECTIONS.profile);
+const profileContainer = document.getElementById(SECTIONS.profile.container);
 const userSelector = document.getElementById(ELEMENTS.userSelector);
 const submitBtn = document.getElementById(ELEMENTS.submit);
 
@@ -21,5 +21,6 @@ submitBtn.addEventListener("click", async function () {
     const data = await response.json();
     toggleClass(loader, "hide");
     toggleClass(profileContainer, "hide");
+    setProfileData(data);
   }
 });
