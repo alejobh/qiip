@@ -37,7 +37,8 @@ function createHeaders(header) {
 }
 
 function createBody(body, data) {
-  for (el in data) {
+  data.forEach((el) => {
+    const tr = document.createElement("tr");
     const td1 = document.createElement("td");
     const td2 = document.createElement("td");
     const td3 = document.createElement("td");
@@ -48,12 +49,13 @@ function createBody(body, data) {
     td3.innerHTML = el.diagnosis.name;
     td4.innerHTML = el.meta.weight;
     td5.innerHTML = el.doctor.name;
-    body.appendChild(td1);
-    body.appendChild(td2);
-    body.appendChild(td3);
-    body.appendChild(td4);
-    body.appendChild(td5);
-  }
+    tr.appendChild(td1);
+    tr.appendChild(td2);
+    tr.appendChild(td3);
+    tr.appendChild(td4);
+    tr.appendChild(td5);
+    body.appendChild(tr);
+  });
 }
 
 function setProfileTable(data) {
@@ -69,12 +71,13 @@ export function setProfileData(profile) {
   console.log(profile);
   const sorted = profile.data.sort(sortData);
   const data = sorted[0];
+  console.log(data);
   const name = data.userName;
-  const dob = new Date(data.userDob);
+  const dob = data.userDob;
   const height = data.meta.height;
 
   document.getElementById(SECTIONS.profile.name).innerHTML = name;
-  document.getElementById(SECTIONS.profile.dob).innerHTML = formatDate(dob);
+  document.getElementById(SECTIONS.profile.dob).innerHTML = dob;
   document.getElementById(
     SECTIONS.profile.height
   ).innerHTML = `Height: ${height}`;
